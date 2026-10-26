@@ -41,3 +41,35 @@ if (typingElement) {
 
     typeEffect();
 }
+
+/* ===== Scroll Reveal Animation ===== */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const revealElements = document.querySelectorAll(
+        "section, .project-card, .skill-card"
+    );
+
+    // Add the reveal class to the selected elements
+    revealElements.forEach(function (element) {
+        element.classList.add("reveal");
+    });
+
+    // Reveal elements when they enter the screen
+    const observer = new IntersectionObserver(
+        function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    revealElements.forEach(function (element) {
+        observer.observe(element);
+    });
+});

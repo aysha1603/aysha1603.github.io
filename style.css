@@ -649,3 +649,202 @@ nav a:hover {
     color: #a78bfa;
     transform: translateX(4px);
 }
+
+/* ===== Modern Portfolio Animations ===== */
+
+/* Smooth scrolling between sections */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Smooth transitions for buttons and cards */
+.btn,
+button,
+.project-card,
+.skill-card,
+a {
+    transition: all 0.3s ease;
+}
+
+/* Button hover effect */
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.35);
+}
+
+/* Card hover effect */
+.project-card:hover,
+.skill-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.18);
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animate the main introduction */
+.hero h1 {
+    animation: fadeInUp 0.8s ease both;
+}
+
+.hero p {
+    animation: fadeInUp 1s ease both;
+}
+
+.hero .btn {
+    animation: fadeInUp 1.2s ease both;
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== Scroll Reveal Effects ===== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Accessibility: respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal.active {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ===== Responsive Portfolio Design ===== */
+
+/* Tablets and smaller laptops */
+@media (max-width: 768px) {
+    section {
+        padding: 60px 6%;
+    }
+
+    .hero h1 {
+        font-size: clamp(2rem, 7vw, 3rem);
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .project-card,
+    .skill-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    section {
+        padding: 45px 5%;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.25;
+    }
+
+    .typing-line {
+        font-size: 1rem;
+        overflow-wrap: anywhere;
+    }
+
+    .btn {
+        display: inline-block;
+        max-width: 100%;
+        margin: 6px 4px;
+        text-align: center;
+    }
+}
+
+/* Prevent accidental horizontal scrolling */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* ===== Premium Project Card Effects ===== */
+
+.project-card {
+    position: relative;
+    border: 1px solid rgba(167, 139, 250, 0.22);
+    border-radius: 16px;
+    overflow: hidden;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: #a78bfa;
+    box-shadow:
+        0 12px 30px rgba(139, 92, 246, 0.18),
+        0 0 12px rgba(34, 211, 238, 0.08);
+}
+
+.project-card img {
+    transition: transform 0.45s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.03);
+}
+
+/* Keyboard accessibility */
+.project-card:focus-within {
+    outline: 2px solid #22d3ee;
+    outline-offset: 3px;
+}
+
+/* Reduced-motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-card img {
+        transition: none;
+    }
+
+    .project-card:hover,
+    .project-card:hover img {
+        transform: none;
+    }
+}
