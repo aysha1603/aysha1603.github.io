@@ -1036,3 +1036,15 @@ section p {
     padding: 0;
     box-sizing: border-box;
 }
+/* Final fix: center the Skills section label */
+
+
+#skills p.section-tag {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
